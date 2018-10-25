@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM</title>
+	<style type="text/css">
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+		.container {
+			/*width: 100px;
+			height: 100px;*/
+			background: red;
+		}
+		.click { 
+			background: transparent;
+			border: 1px solid green;
+			padding: 30px;
+			margin-left: 100px;
+		 }
+		 .circle  {
+		 	width: 100px;
+		 	height: 100px;
+		 	background: brown;
+		 	border-radius: 50px;
+		 }
+		 h1 {
+		 	text-align: center;
+		 	padding: 30px;
+
+		 }
+		 div{
+		 	margin: 20px;
+		 }
+		 #picture {
+		 	width: 400px;
+		 	height: 300px;
+		 	overflow: hidden;
+		 	position: absolute;
+		 	left: 40%;
+		 	border-radius: 40px;
+		 }
+		 form {
+		 	position: absolute;
+		 	left: 100px;
+		 }
+	</style>
+</head>
+<body>
+
+ <div class="container">
+ 	 <h1>Hello, world!!!</h1>
+ </div>
+ 
+ <img id="picture" src="https://www.seriouseats.com/2018/06/20180625-no-churn-vanilla-ice-cream-vicky-wasik-13-1500x1125.jpg" />
+ 
+ <button class="click" id="btn">Click me</button>
+ 
+ <div class="circle"></div>
+
+ <form>
+	 <select name="meal" multiple>
+	    <option value="iceCream" selected>Ice cream</option>
+	    <option value="cookies" selected>Cookies</option>
+	    <option value="cake">Cake</option>
+	  </select>
+ </form>
+
+	<script type="text/javascript">
+		var btn = document.getElementById('btn');
+		var circle = document.querySelector('.circle');
+		var header = document.querySelector('h1');
+		var box = document.querySelector('.container');
+
+		btn.addEventListener('focus', function(){
+              btn.style.background = 'green';
+ 		});
+ 	    document.getElementById('picture').addEventListener('wheel', function() {
+           this.style.border = '2px solid red';
+ 	    });
+ 
+		
+ 
+ 		header.addEventListener('mouseover', function(){
+              header.style.background = 'green';
+
+ 		});
+ 		circle.addEventListener('dblclick', function(){
+              circle.style.width = '300px';
+              circle.style.height = '300px';
+              circle.borderRadius = '50px';
+
+ 		});
+ 	
+	  window.addEventListener("keydown", event => {
+	    if (event.key == "a") {
+	      document.body.style.background = "violet";
+	    } else if (event.key == "b") {
+	      document.body.style.background = "red";
+	    }else if (event.key == "v") {
+	      document.body.style.background = "pink";
+	    }else if (event.key == "e") {
+	      document.body.style.background = "yellow";
+	    }else if (event.key == "n") {
+	      document.body.style.background = "blue";
+	    }
+	  });
+
+
+
+		var form = document.forms[0];
+		var select = form.elements.genre;
+
+		for (var i = 0; i < select.options.length; i++) {
+		  var option = select.options[i];
+		  if(option.selected) {
+		    alert( option.value );
+		  }
+		}
+
+	</script>
+</body>
+</html>
